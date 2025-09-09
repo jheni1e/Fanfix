@@ -8,6 +8,8 @@ using Fanfix.UseCases.EditList;
 using Fanfix.UseCases.SearchList;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Fanfix.UseCases.Login;
+using Fanfix.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,6 +46,7 @@ builder.Services.AddTransient<CreateFanficUseCase>();
 builder.Services.AddTransient<DeleteFanficUseCase>();
 builder.Services.AddTransient<EditListUseCase>();
 builder.Services.AddTransient<SearchListUseCase>();
+builder.Services.AddTransient<LoginUseCase>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -52,6 +55,11 @@ var app = builder.Build();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.ConfigureAuthEndpoints();
+app.ConfigureUserEndpoints();
+app.ConfigureFanficEndpoints();
+app.ConfigureReadingListEndpoints();
 
 app.UseSwagger();
 app.UseSwaggerUI();
