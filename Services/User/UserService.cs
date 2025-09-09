@@ -12,6 +12,13 @@ public class UserService(FanfixDbContext ctx) : IUserService
         return user.ID;
     }
 
+    public async Task<User> GetUserByID(int ID)
+    {
+        return await ctx.Users.FirstOrDefaultAsync(
+            u => u.ID == ID
+        );
+    }
+
     public async Task<User> GetUserByUsername(string Username)
     {
         return await ctx.Users.FirstOrDefaultAsync(
