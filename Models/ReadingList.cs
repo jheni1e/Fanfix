@@ -7,4 +7,6 @@ public class ReadingList
     public DateTime LastUpdated { get; set; }
 
     public ICollection<Fanfic> Fanfics { get; set; } = [];
+    
+    public int CreatorID { get; set; }
 }
