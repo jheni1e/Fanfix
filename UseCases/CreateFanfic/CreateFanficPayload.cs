@@ -11,7 +11,6 @@ public record CreateFanficPayload
 
     [Required]
     [TextLimits]
-    [MaxLength(6000)]
     public string Text { get; init; }
 
     [Required]
