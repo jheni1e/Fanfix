@@ -8,7 +8,7 @@ public static class ReadingListEndpoints
 {
     public static void ConfigureReadingListEndpoints(this WebApplication app)
     {
-        app.MapGet("search", async (
+        app.MapPost("search", async (
             [FromBody] SearchListPayload payload,
             [FromServices] SearchListUseCase useCase
         ) =>
