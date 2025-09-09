@@ -6,6 +6,7 @@ public class TextLimitsAttribute : ValidationAttribute
 {
     public int MaxLines { get; set; } = 100;
     public int MaxWords { get; set; } = 1000;
+    public int MaxChars { get; set; } = 1000;
     
     public override bool IsValid(object value)
     {
@@ -14,9 +15,11 @@ public class TextLimitsAttribute : ValidationAttribute
             
         var lines = text.Count(c => c == '\n') + 1;
         var words = text.Split(new[] { ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).Length;
-        return lines <= MaxLines && words <= MaxWords;
+        var chars = text.Length;
+        
+        return lines <= MaxLines && words <= MaxWords && chars <= MaxChars;
     }
+    
     public override string FormatErrorMessage(string name)
-        => $"The field '{name}' must not exceed {MaxLines} lines or {MaxWords} words.";
-
+        => $"The field '{name}' must not exceed {MaxLines} lines, {MaxWords} words or {MaxChars} characters.";
 }
