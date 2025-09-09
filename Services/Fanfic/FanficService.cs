@@ -5,11 +5,11 @@ namespace Fanfix.Services.Fanfics;
 
 public class FanficService(FanfixDbContext ctx) : IFanficService
 {
-    public async Task<int> CreateFanfic(Fanfic fanfic)
+    public async Task<int> CreateFanfic(Fanfic Fanfic)
     {
-        ctx.Fanfics.Add(fanfic);
+        ctx.Fanfics.Add(Fanfic);
         await ctx.SaveChangesAsync();
-        return fanfic.ID;
+        return Fanfic.ID;
     }
 
     public async Task<Fanfic> GetFanficByID(int ID)
