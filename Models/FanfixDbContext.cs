@@ -12,16 +12,16 @@ public class FanfixDbContext(DbContextOptions<FanfixDbContext> opts) : DbContext
     protected override void OnModelCreating(ModelBuilder mb)
     {
         mb.Entity<User>()
-            .HasMany(u => u.Fanfics)
-            .OnDelete(DeleteBehavior.NoAction);
+          .HasMany(u => u.Fanfics)
+          .OnDelete(DeleteBehavior.NoAction);
 
         mb.Entity<Fanfic>()
-            .HasOne(u => u.Creator)
-            .HasForeignKey(u => u.CreatorID)
-            .OnDelete(DeleteBehavior.NoAction);
+          .HasOne(f => f.Creator)
+          .HasForeignKey(f => f.CreatorID)
+          .OnDelete(DeleteBehavior.NoAction);
 
         mb.Entity<ReadingList>()
-            .HasMany(r => r.Fanfics)
-            .OnDelete(DeleteBehavior.NoAction);
+          .HasMany(r => r.Fanfics)
+          .OnDelete(DeleteBehavior.NoAction);
     }
 }
