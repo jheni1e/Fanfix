@@ -19,10 +19,10 @@ public class UserService(FanfixDbContext ctx) : IUserService
         );
     }
 
-    public async Task<User> GetUserByUsername(string Username)
+    public async Task<User> GetUserByLogin(string Login)
     {
         return await ctx.Users.FirstOrDefaultAsync(
-            u => u.Username == Username
+            u => u.Username == Login || u.Email == Login
         );
     }
 }
