@@ -1,5 +1,6 @@
 namespace Fanfix.UseCases.DeleteFanfic;
 
 public record DeleteFanficPayload (
-    int FanficID
+    int FanficID,
+    int CreatorID
 );
