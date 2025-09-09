@@ -1,4 +1,5 @@
 using Fanfix.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Fanfix.UseCases.SearchList;
 
@@ -9,7 +10,11 @@ public class SearchListUseCase
 {
     public async Task<Result<SearchListResponse>> Do(SearchListPayload payload)
     {
-        var list = await ctx.ReadingLists.FindAsync(payload.Title);
+        var list = await ctx.ReadingLists
+        .Include(l => l.Fanfics)
+            .ThenInclude(f => f.Creator)
+        .FirstOrDefaultAsync(l => l.Title == payload.Title);
+        
         if (list is null)
             return Result<SearchListResponse>.Fail("Reading List not found.");
         

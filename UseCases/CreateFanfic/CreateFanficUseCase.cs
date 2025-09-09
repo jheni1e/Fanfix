@@ -12,6 +12,8 @@ public class CreateFanficUseCase(
     public async Task<Result<CreateFanficResponse>> Do(CreateFanficPayload payload)
     {
         var creator = await userService.GetUserByID(payload.CreatorID);
+        if (creator is null)
+            throw new Exception("Creator does not exist.");
 
         var fanfic = new Fanfic
         {

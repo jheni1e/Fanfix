@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Fanfix.Migrations
 {
     [DbContext(typeof(FanfixDbContext))]
-    [Migration("20250909225728_InitialModel")]
-    partial class InitialModel
+    [Migration("20250909230826_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

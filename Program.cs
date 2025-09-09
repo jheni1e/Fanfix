@@ -16,7 +16,7 @@ using Fanfix.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var strConnection = "Data Source = localhost; Initial Catalog = Fanfix; Trust Server Certificate = true; Integrated Security = true";
+var strConnection = "Data Source = localhost\\SQLEXPRESS; Initial Catalog = Fanfix; Trust Server Certificate = true; Integrated Security = true";
 builder.Services.AddDbContext<FanfixDbContext>(
     options => options.UseSqlServer(strConnection)
 );
