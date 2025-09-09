@@ -6,7 +6,7 @@ dotnet add package Microsoft.EntityFrameworkCore.Tools
 dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 
-$env:SQL_CONNECTION = "Data Source=localhost;Initial Catalog=Fofoquinha;Trust Server Certificate=true;Integrated Security=true"
+$env:SQL_CONNECTION = "Data Source=localhost;Initial Catalog=Fanfix;Trust Server Certificate=true;Integrated Security=true"
 $env:JWT_SECRET = "adbfoahfodsahoifdsjoifjdssoidjfdsfojsfa"
 
 dotnet tool install --global dotnet-ef
