@@ -1,8 +1,9 @@
-namespace Fanfix.Services.Fanfic;
+using Fanfix.Models;
+
+namespace Fanfix.Services.Fanfics;
 
 public interface IFanficService
 {
     Task<int> CreateFanfic(Fanfic fanfic);
-    Task<Fanfic> GetFanfic(string Username);
     Task<Fanfic> GetFanficByID(int ID);
 }
