@@ -22,6 +22,7 @@ public class FanfixDbContext(DbContextOptions<FanfixDbContext> opts) : DbContext
 
         mb.Entity<ReadingList>()
           .HasMany(r => r.Fanfics)
+          .WithMany(f => f.ReadingLists);
           .OnDelete(DeleteBehavior.NoAction);
     }
 }

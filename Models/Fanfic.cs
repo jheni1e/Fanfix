@@ -8,4 +8,6 @@ public class Fanfic
 
     public int CreatorID { get; set; }
     public User Creator { get; set; }
+
+    public ICollection<ReadingList> ReadingLists { get; set; } = [];
 }
